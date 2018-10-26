@@ -1,0 +1,31 @@
+type User @model {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  email: String! @isUnique
+  password: String!
+  usersData: [Post!]! @relation(name: "UserData")
+  employees: EmployeeData @relation(name: "Employees")
+}
+
+type Post @model{
+  name: String!
+  id: ID! @isUnique
+  userName: String!
+  users: [User!]! @relation(name: "UserData")
+  employees: EmployeeData @relation(name: "Employees")
+}
+ 
+type EmployeeData @model {
+  id: ID! @isUnique
+  employeeName: String!
+  username: String!
+  email: String! 
+  designation: String! @rename(oldName: "jobTitle")
+  age: boolean !
+  dateOfHire: DateTime
+  workPhoneNumber: Int!
+  user: User @relation(name: "Employees")
+  post: Post @relation(name: "UserPosts")
+}
+
