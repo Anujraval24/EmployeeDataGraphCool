@@ -22,10 +22,38 @@ functions:
       code: 
         src: src/loggedInUser.js
 
-permissions: []
+  
+
+permissions: 
+    #User
+  - operation: User.read
+  - operation: User.create
+    authenticated: true
+  - operation: User.update
+    authenticated: true
+  - operation: User.delete
+    authenticated: true
+
+    #Post
+  - operation: Post.read
+  - operation: Post.create
+    authenticated: true
+  - operation: Post.update
+    authenticated: true
+  - operation: Post.delete
+    authenticated: true
+
+    #EmployeeData
+  - operation: EmployeeData.read
+  - operation: EmployeeData.create
+    authenticated: true
+  - operation: EmployeeData.update
+    authenticated: true
+  - operation: EmployeeData.delete
+    authenticated: true
+
 
 rootTokens:
   - signup
   - authenticate
   - loggedInUser
-
